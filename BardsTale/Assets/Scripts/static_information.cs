@@ -77,6 +77,12 @@ public static class static_information {
         camera = GameObject.Find("Main Camera");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         fireballs = GameObject.FindGameObjectsWithTag("Fireball");
+        Debug.Log("Running Static Awake Code.");
+    }
+
+    public static void Start()
+    {
+        Awake();
     }
 
     // USE THIS TO HELP CHANGE CAMERA FOR ROOMS (x_offset, y_offset)

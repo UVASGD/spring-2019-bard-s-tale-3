@@ -45,7 +45,7 @@ public class hero_act : MonoBehaviour {
             SceneManager.LoadScene(0);
         }
         GameObject.Find("Health Parent").GetComponent<adjustHealth>().setHealth(health);
-        //Debug.Log("Took damage! Health is " + health);
+        Debug.Log("Took damage! Health is " + health);
     }
 
     public void healDamage()

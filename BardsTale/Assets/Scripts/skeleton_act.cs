@@ -153,6 +153,8 @@ public class skeleton_act : MonoBehaviour {
                 }
                 else if (recoil_cooldown > 0)
                 {
+                    is_attacking = false;
+                    took_damage = true;
                     recoil_cooldown--;
                 }
                 else if (distance_to_hero() <= 0.1f)

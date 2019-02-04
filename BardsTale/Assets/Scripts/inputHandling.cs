@@ -21,6 +21,8 @@ public class inputHandling : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        static_information.Awake();
+
         //PauseParent = GameObject.Find("canvas/Pause Menu Parent").GetComponent<Text>();
         //SpellbookParent = GameObject.Find("canvas/Spellbook Parent").GetComponent<Text>();
         setVisibility(PauseParent, false);

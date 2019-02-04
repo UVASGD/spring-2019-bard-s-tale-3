@@ -63,7 +63,7 @@ public class hero_move : MonoBehaviour {
             }
             else
             {
-                // Debug.Log("Hit a wall!");
+                 Debug.Log("Hit a wall!");
             }
         }
     }

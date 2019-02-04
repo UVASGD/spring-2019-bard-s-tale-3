@@ -16,6 +16,7 @@ public class speed_handling : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         am_sped_up = false;
+        speed_counter = 0;
 
         spritesList = Resources.LoadAll<Sprite>(path);
         r = GetComponent<SpriteRenderer>();
@@ -34,6 +35,7 @@ public class speed_handling : MonoBehaviour {
             if (am_sped_up)
             {
                 throttleDown();
+                r.sprite = null;
             }
         }
 	}
@@ -46,7 +48,7 @@ public class speed_handling : MonoBehaviour {
 
     void throttleDown()
     {
-        static_information.hero.GetComponent<hero_move>().speed -= 0x02f;
+        static_information.hero.GetComponent<hero_move>().speed -= 0.02f;
         r.sprite = null;
         animation_counter = 0;
     }

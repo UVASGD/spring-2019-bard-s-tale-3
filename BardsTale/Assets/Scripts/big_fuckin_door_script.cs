@@ -28,7 +28,7 @@ public class big_fuckin_door_script : MonoBehaviour {
     public GameObject[] doors;
 
     // formerly 0.48f, 0.32f
-    private Vector2 door_dimensions = new Vector2( 0.24f, 0.31f );
+    private Vector2 door_dimensions = new Vector2( 0.28f, 0.35f );
 
     private int door_cooldown;
     private int door_max_cooldown = 10;

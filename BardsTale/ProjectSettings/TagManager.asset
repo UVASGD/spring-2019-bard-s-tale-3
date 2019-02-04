@@ -10,6 +10,7 @@ TagManager:
   - Ally
   - Enemy
   - Fireball
+  - Hero
   layers:
   - Default
   - TransparentFX

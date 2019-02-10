@@ -1,12 +1,8 @@
-New Unity Project/[Ll]ibrary/metadata
-New Unity Project\[Ll]ibrary\metadata
-New Unity Project/[Ll]ibrary/metadata/52/52a206b72a8f4f749c28d8b18b42dd19
-New Unity Project\[Ll]ibrary\metadata\52\52a206b72a8f4f749c28d8b18b42dd19
-New Unity Project/[Tt]emp/
-New Unity Project/[Oo]bj/
 */[Bb]uild/
 */[Bb]uilds/
 */Assets/AssetStoreTools*
+
+
 
 # Visual Studio 2015 cache directory
 */.vs/
@@ -25,12 +21,7 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
-
-# Unity3D generated meta files
-*.pidb.meta
-*.meta
-!*.unity.prefab.meta
-!*.prefab.meta
+*.info
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
@@ -38,37 +29,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-New Unity Project\Library\assetDatabase3
-
-New Unity Project/Library/expandeditems
-New Unity Project/Library/LastSceneManagerSetup.txt
-New Unity Project\Library\metadata\*
-New Unity Project/Library/metadata/*
-<<<<<<< HEAD
-New Unity Project\Library\ProjectSettings.asset
-New Unity Project\ProjectSettings\ProjectSettings.asset
-New Unity Project\ProjectSettings\ProjectVersion.txt
-New Unity Project/Library/assetDatabase3
-New Unity Project/Library/ScriptMapper
-*.info
-New Unity Project/Library/metadata/45/453f100e6bdae4dfd9e655927819dc85.info
-New Unity Project/Library/assetDatabase3
-New Unity Project/Library/CurrentLayout.dwlt
-*.dwlt
-New Unity Project/Library/metadata/00/00000000000000007000000000000000
-New Unity Project/Library/assetDatabase3
-New Unity Project/Library/CurrentLayout.dwlt
-New Unity Project/Library/CurrentLayout.dwlt
-=======
-New Unity Project/Library/ProjectSettings.asset
-New Unity Project/ProjectSettings/ProjectSettings.asset
-New Unity Project/ProjectSettings/ProjectVersion.txt
-New Unity Project/Library/ScriptAssemblies/*
-<<<<<<< HEAD
->>>>>>> refs/remotes/origin/master
-=======
-*.dwlt
-
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
@@ -104,4 +64,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
->>>>>>> refs/remotes/origin/master

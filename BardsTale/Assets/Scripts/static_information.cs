@@ -130,35 +130,41 @@ public static class static_information {
             // nah, man. this is totally efficient, shut up
             if (x_coord < 2.4 && x_coord > -2.4)
             {
+                // first room
                 return 0;
             }
             else if (x_coord < 16.8 && x_coord > 12.0)
             {
+                // last room
                 return 5;
             }
             else if (x_coord > 2.4 && x_coord < 7.2)
             {
+                // second room
                 return 1;
             }
             else
             {
                 if (y_coord < 1.8 && y_coord > -1.8)
                 {
+                    // skeleton and zombie room
                     return 2;
                 }
                 else if (y_coord < 5.4 && y_coord > 1.8)
                 {
+                    // three skeleton room
                     return 3;
                 }
                 else if (y_coord < 8.2 && y_coord > 5.4)
                 {
+                    // boss room
                     return 4;
                 }
             }
         }
         else if (SceneManager.GetActiveScene().name.Equals("demo_level2"))
         {
-
+            // lmao like we are ever gonna use this POS script on level 2
         }
         return -1;
     }

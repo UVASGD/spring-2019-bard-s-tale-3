@@ -160,9 +160,19 @@ public class SpellCasting : MonoBehaviour {
                                 static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("heal");
                                 static_information.hero.GetComponent<hero_act>().healDamage();
                                 break;
-                            case 3: //mario spell
+                            case 3: //mario spell - fireball II
+                                Debug.Log("Casting Fireball II!");
+                                //for (int j = 0; j < static_information.fireballIIs.Length; j++)
+                                //{
+                                //    if (static_information.fireballIIs[j].GetComponent<SpriteRenderer>().enabled == false)
+                                //    {
+                                //        static_information.fireballIIs[j].transform.position = static_information.hero.transform.position;
+                                //       static_information.fireballIIs[j].GetComponent<fireballII_animation>().castFireballII();
+                                //    }
+                                //}
                                 break;
                             case 4: //beethoven spell
+                                Debug.Log("Casting Banish!");
                                 break;
                             case 5: //sonic spell
                                 Debug.Log("Casting Speed!");

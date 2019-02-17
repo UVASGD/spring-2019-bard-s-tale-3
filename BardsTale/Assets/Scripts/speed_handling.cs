@@ -54,7 +54,10 @@ public class speed_handling : MonoBehaviour {
             if(!am_sped_up)
             {
                  static_information.hero.GetComponent<hero_move>().speed+=0.02f; speed_counter = speed_counter_max;
-              
+            if (static_information.hero.GetComponent<hero_move>().speed > .05f)
+            {
+                static_information.hero.GetComponent<hero_move>().speed -= .02f;
+            }
             }
 
          

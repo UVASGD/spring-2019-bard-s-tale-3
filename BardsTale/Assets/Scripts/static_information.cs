@@ -71,9 +71,12 @@ public static class static_information {
     public static GameObject[] enemies;
     public static GameObject[] fireballs;
 
+    public static Rigidbody2D heroRigidBody;
+
     public static void Awake()
     {
         hero = GameObject.Find("Hero");
+        heroRigidBody = hero.GetComponent<Rigidbody2D>();
         camera = GameObject.Find("Main Camera");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         fireballs = GameObject.FindGameObjectsWithTag("Fireball");

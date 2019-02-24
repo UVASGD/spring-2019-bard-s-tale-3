@@ -23,7 +23,9 @@ public class Zombie_act : MonoBehaviour {
     int recoil_cooldown;
     int max_recoil_cooldown = 4;
 
-    int damage_cooldown;
+    public float cooldown_max = 4;
+
+    float damage_cooldown;
 
     int move_cycle = 16;
     int move_cycle_current = 0;
@@ -31,6 +33,9 @@ public class Zombie_act : MonoBehaviour {
         0.5f, 0.5f, 0.75f, 1.5f, 1.5f, 0.75f, 0.5f, 0.5f,
         0.5f, 0.5f, 0.75f, 1.5f, 1.5f, 0.75f, 0.5f, 0.5f
     };
+
+    Animator animator;
+    Collider2D collider;
 
 
     // Use this for initialization
@@ -43,6 +48,9 @@ public class Zombie_act : MonoBehaviour {
 
         recoil_cooldown = 0;
         damage_cooldown = 0;
+
+        animator = GetComponent<Animator>();
+        collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -51,89 +59,123 @@ public class Zombie_act : MonoBehaviour {
         {
             if (!is_dead)
             {
-                // zombie will attack if it is within 0.05 of the hero
-                if (recoil_cooldown > 0)
-                {
-                    recoil_cooldown--;
-                }
-                else if (distance_to_hero() <= 0.1f)
-                {
-                    is_attacking = true;
-                    took_damage = false;
-                    if (damage_cooldown > 0)
+                is_attacking = false;
+                took_damage = false;
+                //if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
+                //{
+                    Vector2 new_position = new Vector2(transform.position.x, transform.position.y);
+                    int x_direct = 0, y_direct = 0; float small_float_value = 0.05f;
+                    // Zombie is right of hero
+                    if (transform.position.x - static_information.hero.transform.position.x > small_float_value)
                     {
-                        damage_cooldown--;
+                        x_direct = -1;
+                        move_direction = 2;
+                    }
+                    // Zombie is left of hero
+                    else if (transform.position.x - static_information.hero.transform.position.x < (-1 * small_float_value))
+                    {
+                        x_direct = 1;
+                        move_direction = 3;
+                    }
+
+                    // Zombie is up of hero
+                    if (transform.position.y - static_information.hero.transform.position.y > small_float_value)
+                    {
+                        y_direct = -1;
+                        move_direction = 0;
+                    }
+                    // Zombie is down of hero
+                    else if (transform.position.y - static_information.hero.transform.position.y < (-1 * small_float_value))
+                    {
+                        y_direct = 1;
+                        move_direction = 1;
+                    }
+
+
+
+                    // if neither x_diff nor y_diff are true, we won't change new_position.
+                    if (x_direct != 0)
+                    {
+                        new_position.x += (x_direct) * ((movespeed * movespeeds[++move_cycle_current % move_cycle]) / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
+                    }
+                    if (y_direct != 0)
+                    {
+                        new_position.y += (y_direct) * ((movespeed * movespeeds[++move_cycle_current % move_cycle]) / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));  
+                    }
+
+                    //control animator
+                    if (y_direct > 0 || x_direct > 0)
+                    {
+                        animator.SetBool("backWalk", true);
+                        animator.SetBool("frontWalk", false);
+                        animator.SetBool("facingFront", false);
+                    }
+                    else if (y_direct < 0 || x_direct < 0)
+                    {
+                        animator.SetBool("frontWalk", true);
+                        animator.SetBool("backWalk", false);
+                        animator.SetBool("facingFront", true);
                     }
                     else
                     {
-                        static_information.hero.GetComponent<hero_act>().takeDamage();
-                        damage_cooldown = 5 * GetComponent<Zombie_animation_script>().cooldown_max;
+                        animator.SetBool("frontWalk", false);
+                        animator.SetBool("backWalk", false);
                     }
 
-                    move_direction = -1;
-                }
-                else
-                {
-                    is_attacking = false;
-                    took_damage = false;
-                    if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
-                    {
-                        Vector2 new_position = new Vector2(transform.position.x, transform.position.y);
-                        int x_direct = 0, y_direct = 0; float small_float_value = 0.05f;
-                        // Zombie is right of hero
-                        if (transform.position.x - static_information.hero.transform.position.x > small_float_value)
-                        {
-                            x_direct = -1;
-                            move_direction = 2;
-                        }
-                        // Zombie is left of hero
-                        else if (transform.position.x - static_information.hero.transform.position.x < (-1 * small_float_value))
-                        {
-                            x_direct = 1;
-                            move_direction = 3;
-                        }
-
-                        // Zombie is up of hero
-                        if (transform.position.y - static_information.hero.transform.position.y > small_float_value)
-                        {
-                            y_direct = -1;
-                            move_direction = 0;
-                        }
-                        // Zombie is down of hero
-                        else if (transform.position.y - static_information.hero.transform.position.y < (-1 * small_float_value))
-                        {
-                            y_direct = 1;
-                            move_direction = 1;
-                        }
-
-
-
-                        // if neither x_diff nor y_diff are true, we won't change new_position.
-                        if (x_direct != 0)
-                        {
-                            new_position.x += (x_direct) * ((movespeed * movespeeds[++move_cycle_current % move_cycle]) / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
-                        }
-                        if (y_direct != 0)
-                        {
-                            new_position.y += (y_direct) * ((movespeed * movespeeds[++move_cycle_current % move_cycle]) / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
-                        }
-
-                        if (static_information.is_in_bounds(new_position))
-                        { transform.position = new_position; }
-                    }
-                }
+                if (static_information.is_in_bounds(new_position))
+                    { transform.position = new_position; }
+                //}
+                //else
+                //{
+                //    Debug.Log("Zombie Error");
+                //}
             }
             else
             {
                 GetComponent<SpriteRenderer>().color = Color.gray;
             }
         }
-
     }
 
     float distance_to_hero()
     {
         return Mathf.Sqrt(Mathf.Pow(static_information.hero.transform.position.x - transform.position.x, 2) + Mathf.Pow(static_information.hero.transform.position.y - transform.position.y, 2));
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        // zombie will attack if it is within 0.05 of the hero
+        if (recoil_cooldown > 0)
+        {
+            recoil_cooldown--;
+        }
+        else if (distance_to_hero() <= 0.1f)
+        {
+            is_attacking = true;
+            took_damage = false;
+            if (damage_cooldown > 0)
+            {
+                damage_cooldown -= Time.deltaTime;
+            }
+            else
+            {
+                static_information.hero.GetComponent<hero_act>().takeDamage();
+                damage_cooldown = 5 * cooldown_max;
+
+                if (animator.GetBool("facingFront"))
+                {
+                    animator.SetTrigger("frontAttack");
+                }
+                else
+                {
+                    animator.SetTrigger("backAttack");
+                }
+
+                static_information.heroRigidBody.AddForce((static_information.hero.transform.position - transform.position).normalized * 500f);
+            }
+
+            move_direction = -1;
+        }
     }
 
     public void takeDamage()
@@ -143,6 +185,15 @@ public class Zombie_act : MonoBehaviour {
             took_damage = true;
             health--;
             is_dead = (health <= 0);
+
+            if (animator.GetBool("facingFront"))
+            {
+                animator.SetTrigger("frontDamage");
+            }
+            else
+            {
+                animator.SetTrigger("backDamage");
+            }
             // Debug.Log("Zombie took damage! Health is: " + health);
         }
     }

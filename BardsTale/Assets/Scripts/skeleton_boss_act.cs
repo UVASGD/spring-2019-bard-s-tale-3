@@ -184,6 +184,22 @@ public class skeleton_boss_act : MonoBehaviour
         }
     }
 
+    public void takeDamage(int damage)
+    {
+        if (!is_dead)
+        {
+            took_damage = true;
+            health-=damage;
+            is_dead = (health <= 0);
+            if (is_dead)
+            {
+                GetComponent<boss_animation_script>().frame_offset = 0;
+                GetComponent<boss_animation_script>().dying = true;
+            }
+            // Debug.Log("Skeleton took damage! Health is: " + health);
+        }
+    }
+
     void spit()
     {
         GetComponent<boss_animation_script>().spitting = true;

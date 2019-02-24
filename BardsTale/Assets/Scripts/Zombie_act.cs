@@ -146,4 +146,15 @@ public class Zombie_act : MonoBehaviour {
             // Debug.Log("Zombie took damage! Health is: " + health);
         }
     }
+
+    public void takeDamage(int damage)
+    {
+        if (!is_dead)
+        {
+            took_damage = true;
+            health-=damage;
+            is_dead = (health <= 0);
+            // Debug.Log("Zombie took damage! Health is: " + health);
+        }
+    }
 }

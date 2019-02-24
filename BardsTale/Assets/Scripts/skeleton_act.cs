@@ -274,6 +274,30 @@ public class skeleton_act : MonoBehaviour {
         }
     }
 
+    public void takeDamage(int damage)
+    {
+        if (!is_dead)
+        {
+            took_damage = true;
+            if (!is_boss)
+            {
+                recoil_cooldown = max_recoil_cooldown * GetComponent<skeleton_animation_script>().cooldown_max;
+            }
+            health-=damage;
+            is_dead = (health <= 0);
+            if (is_dead && is_boss)
+            {
+                GetComponent<boss_animation_script>().frame_offset = 0;
+                GetComponent<boss_animation_script>().dying = true;
+            }
+            else if (is_dead)
+            {
+                GetComponent<skeleton_animation_script>().dying = true;
+            }
+            // Debug.Log("Skeleton took damage! Health is: " + health);
+        }
+    }
+
     void spit()
     {
         GetComponent<boss_animation_script>().spitting = true;

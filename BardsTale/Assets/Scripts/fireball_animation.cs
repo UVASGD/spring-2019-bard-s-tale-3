@@ -23,6 +23,8 @@ public class fireball_animation : MonoBehaviour
     int direction;
     bool exploding;
 
+    int damage = 1;
+
     /* THE SPRITES LIST IS AS FOLLOWS:
      * First 6 images: Fireball moving down (direction = 2, exploding = false)
      * Next 6 images: Fireball moving right (direction = 1 or 3, exploding = false)
@@ -129,8 +131,8 @@ public class fireball_animation : MonoBehaviour
                     exploding = true;
                     animation_offset = 18;
                     if (g.GetComponent<skeleton_act>() != null)
-                    { g.GetComponent<skeleton_act>().takeDamage(); }
-                    else { g.GetComponent<Zombie_act>().takeDamage(); }
+                    { g.GetComponent<skeleton_act>().takeDamage(damage); }
+                    else { g.GetComponent<Zombie_act>().takeDamage(damage); }
                 }
             }
         }
@@ -149,6 +151,33 @@ public class fireball_animation : MonoBehaviour
     {
         r.enabled = true;
         direction = static_information.hero.GetComponent<hero_move>().moveDir;
+        switch (direction)
+        {
+            case 0: // move up
+                animation_offset = 12;
+                break;
+            case 1: // move left
+                animation_offset = 6;
+                r.flipX = true;
+                break;
+            case 2: // move down
+                animation_offset = 0;
+                break;
+            case 3: // move right
+                animation_offset = 6;
+                r.flipX = false;
+                break;
+            default: // move... wait
+                Debug.Log("Ding dong! Something's wrong!");
+                break;
+        }
+    }
+
+    public void castFireball(int withDamage)
+    {
+        r.enabled = true;
+        direction = static_information.hero.GetComponent<hero_move>().moveDir;
+        damage = withDamage;
         switch (direction)
         {
             case 0: // move up

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Fireball : Song
 {
+    public int damage = 1;
 
     void Awake()
     {
@@ -30,7 +31,7 @@ public class Fireball : Song
             if (static_information.fireballs[j].GetComponent<SpriteRenderer>().enabled == false)
             {
                 static_information.fireballs[j].transform.position = static_information.hero.transform.position;
-                static_information.fireballs[j].GetComponent<fireball_animation>().castFireball();
+                static_information.fireballs[j].GetComponent<fireball_animation>().castFireball(damage);
                 break;
             }
         }

@@ -138,12 +138,12 @@ public class SpellCasting : MonoBehaviour {
                         {
                             case 0: //light spell
                                 //Debug.Log("Casting Light!");
-                                static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("light");
-                                cast_light_spell();
+                                //static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("light");
+                                //cast_light_spell();
                                 break;
                             case 1: //fireball spell
                                 //Debug.Log("Casting Fireball!");
-                                static_information.has_casted_fireball = true;
+                                /*static_information.has_casted_fireball = true;
                                 for (int j = 0; j < static_information.fireballs.Length; j++)
                                 {
                                     if (static_information.fireballs[j].GetComponent<SpriteRenderer>().enabled == false)
@@ -153,7 +153,7 @@ public class SpellCasting : MonoBehaviour {
                                         break;
                                     }
                                 }
-                                static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("fireball");
+                                static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("fireball");*/
                                 break;
                             case 2: //healing spell
                                 //Debug.Log("Casting Heal!");

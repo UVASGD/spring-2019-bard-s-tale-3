@@ -56,4 +56,13 @@ public class hero_act : MonoBehaviour {
         }
         GameObject.Find("Health Parent").GetComponent<adjustHealth>().setHealth(health);
     }
+
+    public void healDamage(int healBy)
+    {
+        if (health < 5)
+        {
+            health += healBy;
+        }
+        GameObject.Find("Health Parent").GetComponent<adjustHealth>().setHealth(health);
+    }
 }

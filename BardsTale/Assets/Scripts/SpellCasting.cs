@@ -157,8 +157,8 @@ public class SpellCasting : MonoBehaviour {
                                 break;
                             case 2: //healing spell
                                 //Debug.Log("Casting Heal!");
-                                static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("heal");
-                                static_information.hero.GetComponent<hero_act>().healDamage();
+                                /*static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("heal");
+                                static_information.hero.GetComponent<hero_act>().healDamage();*/
                                 break;
                             case 3: //mario spell
                                 break;

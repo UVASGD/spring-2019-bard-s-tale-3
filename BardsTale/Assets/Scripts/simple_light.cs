@@ -20,12 +20,14 @@ public class simple_light : MonoBehaviour {
 
         alpha = (alpha >= static_information.max_light_level - 15.0f)?static_information.max_light_level - 15.0f:
             (alpha + (0.001f * static_information.max_light_level));
-
+        
         light_renderer.color = new Color(light_renderer.color.r, light_renderer.color.g, light_renderer.color.b, alpha/static_information.max_light_level);
 	}
 
     public void addLight()
     {
-        alpha -= static_information.max_light_level * 0.5f;
+        if (alpha > 0)
+
+            alpha -= static_information.max_light_level * (alpha/30f);
     }
 }

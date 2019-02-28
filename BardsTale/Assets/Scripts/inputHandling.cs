@@ -18,6 +18,7 @@ public class inputHandling : MonoBehaviour {
     public Text ControlsParent = null;
 
     private int changeIndex = -1;
+    private int health = 5;
 
 	// Use this for initialization
 	void Start () {
@@ -357,7 +358,6 @@ public class inputHandling : MonoBehaviour {
         // pause the game, open the book
         static_information.isPaused = true;
         static_information.reading = true;
-
         // show spellbook UI
         setVisibility(SpellbookParent, true);
 
@@ -366,6 +366,7 @@ public class inputHandling : MonoBehaviour {
         setVisibility(PauseParent, false);
         setVisibility(AlwaysOnParent, false);
         setVisibility(ControlsParent, false);
+        health = GameObject.Find("Hero").GetComponent<hero_act>().getHealth();
     }
 
     private void CloseBook()
@@ -379,12 +380,14 @@ public class inputHandling : MonoBehaviour {
         
         // show Always-on stuff
         setVisibility(AlwaysOnParent, true);
-                
+        
+
         // check to see if you re-add hideable UI
         if (static_information.isShowingKeys)
         {
             setVisibility(HideableParent, true);
         }
+        GameObject.Find("Health Parent").GetComponent<adjustHealth>().setHealth(health);
     }
 
     private void ShowControls()

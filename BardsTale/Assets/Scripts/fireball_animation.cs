@@ -25,6 +25,8 @@ public class fireball_animation : MonoBehaviour
 
     int damage = 1;
 
+    float scale = 1.0f;
+
     /* THE SPRITES LIST IS AS FOLLOWS:
      * First 6 images: Fireball moving down (direction = 2, exploding = false)
      * Next 6 images: Fireball moving right (direction = 1 or 3, exploding = false)
@@ -105,7 +107,7 @@ public class fireball_animation : MonoBehaviour
                 r.sprite = spritesList[animation_offset + (++frame_offset % animation_length)];
             }
         }
-
+        
     }
 
     void detect_collision()
@@ -198,5 +200,10 @@ public class fireball_animation : MonoBehaviour
                 Debug.Log("Ding dong! Something's wrong!");
                 break;
         }
+
+        scale = damage;
+        transform.localScale = new Vector3(scale, scale, scale);
+
     }
+
 }

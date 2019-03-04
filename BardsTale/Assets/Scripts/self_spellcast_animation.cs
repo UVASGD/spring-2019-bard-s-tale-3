@@ -7,12 +7,12 @@ public class self_spellcast_animation : MonoBehaviour {
     public string fireball_path;
     public string heal_path;
     public string light_path;
-    //public string speed_path;
+    public string speed_path;
 
     private Sprite[] fireball_animation;
     private Sprite[] heal_animation;
     private Sprite[] light_animation;
-    //private Sprite[] speed_animation;
+    private Sprite[] speed_animation;
 
     private Sprite[] current_animation;
 
@@ -29,7 +29,7 @@ public class self_spellcast_animation : MonoBehaviour {
         fireball_animation = Resources.LoadAll<Sprite>(fireball_path);
         heal_animation = Resources.LoadAll<Sprite>(heal_path);
         light_animation = Resources.LoadAll<Sprite>(light_path);
-        //speed_animation = Resources.LoadAll<Sprite>(speed_path);
+        speed_animation = Resources.LoadAll<Sprite>(speed_path);
 
         r = GetComponent<SpriteRenderer>();
 
@@ -78,6 +78,10 @@ public class self_spellcast_animation : MonoBehaviour {
         if (spellName.Equals("light"))
         {
             current_animation = light_animation;
+        }
+        if(spellName.Equals("speed"))
+        {
+            current_animation = speed_animation;
         }
         animation_length = current_animation.Length;
         

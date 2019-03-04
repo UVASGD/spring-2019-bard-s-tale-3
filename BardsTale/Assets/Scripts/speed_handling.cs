@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class speed_handling : MonoBehaviour {
 
+
     public bool am_sped_up;
+
     int speed_counter;
     public int speed_counter_max;
+    float V = .03f;
 
     public string path;
     public int animation_counter; 
@@ -24,7 +27,7 @@ public class speed_handling : MonoBehaviour {
 	void Start () {
         am_sped_up = false;
         speed_counter = 0;
-
+   
         spritesList = Resources.LoadAll<Sprite>(path);
         r = GetComponent<SpriteRenderer>();
 	}
@@ -42,8 +45,21 @@ public class speed_handling : MonoBehaviour {
         {
             if (am_sped_up && timer.ElapsedMilliseconds > speedDuration*1000)
             {
-                throttleDown();
-                r.sprite = null;
+            
+                speed_counter--;
+
+                r.sprite = spritesList[animation_counter++ % spritesList.Length];
+            }
+            else
+            {
+            r.sprite = null;
+            static_information.hero.GetComponent<hero_move>().speed = V;
+            animation_counter = 0;
+            if (am_sped_up)
+                {
+                    throttleDown();
+                    r.sprite = null;
+                }
             }
         }*/
         if (am_sped_up)
@@ -57,15 +73,7 @@ public class speed_handling : MonoBehaviour {
             }   
         }
     }
-
-    public void castSpeed()
-    {
-        if (!am_sped_up)
-        {
-            static_information.hero.GetComponent<hero_move>().speed += 0.02f;
-            speed_counter = speed_counter_max;
-        }
-    }
+    
 
     public void castSpeed(float ratio, float duration)
     {
@@ -80,6 +88,22 @@ public class speed_handling : MonoBehaviour {
         }
     }
 
+    public void castSpeed()
+    {
+        
+
+
+            if(!am_sped_up)
+            {
+                 static_information.hero.GetComponent<hero_move>().speed+=0.02f; speed_counter = speed_counter_max;
+            if (static_information.hero.GetComponent<hero_move>().speed > .05f)
+            {
+                static_information.hero.GetComponent<hero_move>().speed -= .02f;
+            }
+            }
+
+         
+    }
     void throttleDown()
     {
         static_information.hero.GetComponent<hero_move>().speed/=speedRatio;

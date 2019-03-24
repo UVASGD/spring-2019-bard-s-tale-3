@@ -66,8 +66,8 @@ public class Zombie_act : MonoBehaviour {
             {
                 is_attacking = false;
                 took_damage = false;
-                //if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
-                //{
+                if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
+                {
                     Vector2 new_position = new Vector2(transform.position.x, transform.position.y);
                     int x_direct = 0, y_direct = 0; float small_float_value = 0.05f;
                     // Zombie is right of hero
@@ -127,18 +127,20 @@ public class Zombie_act : MonoBehaviour {
                         animator.SetBool("backWalk", false);
                     }
 
-                if(freezeCoolDown > 0)
-                {
-                    freezeCoolDown -= Time.deltaTime;
-                }
-                else
-                {
-                    movespeed = defaultMoveSpeed;
-                }
+                    if(freezeCoolDown > 0)
+                    {
+                        freezeCoolDown -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        movespeed = defaultMoveSpeed;
+                    }
 
-                if (static_information.is_in_bounds(new_position))
-                    { transform.position = new_position; }
-                //}
+                    if (static_information.is_in_bounds(new_position))
+                    {
+                        transform.position = new_position;
+                    }
+                }
                 //else
                 //{
                 //    Debug.Log("Zombie Error");

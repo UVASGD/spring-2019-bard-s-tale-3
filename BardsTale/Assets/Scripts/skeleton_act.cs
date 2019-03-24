@@ -5,8 +5,8 @@ using UnityEngine;
 public class skeleton_act : MonoBehaviour {
 
     // should be self-explanatory
-    public static bool is_attacking;
-    public static bool took_damage;
+    public bool is_attacking;
+    public bool took_damage;
 
     // skeleton defaults are x: 0.067, y: 0.167
     // boss defaults are x: unimplemented, y: unimplemented

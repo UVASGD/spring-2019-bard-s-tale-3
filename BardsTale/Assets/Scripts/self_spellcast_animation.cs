@@ -59,7 +59,7 @@ public class self_spellcast_animation : MonoBehaviour {
             {
                 current_animation = null;
                 animation_index = 0;
-                animation_length = 0;
+                animation_length = 1;
             }
             cooldown = max_cooldown;
         }
@@ -82,6 +82,7 @@ public class self_spellcast_animation : MonoBehaviour {
         if(spellName.Equals("speed"))
         {
             current_animation = speed_animation;
+            Debug.Log(current_animation.Length);
         }
         animation_length = current_animation.Length;
         

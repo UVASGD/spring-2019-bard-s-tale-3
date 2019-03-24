@@ -5,6 +5,8 @@ using UnityEngine;
 public class Light : Song
 {
 
+    public float duration = 30.0f;
+
     void Awake()
     {
     }

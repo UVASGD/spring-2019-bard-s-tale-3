@@ -207,6 +207,56 @@ PrefabInstance:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1643345867}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 1643345867}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: spellSound
+      value: 
+      objectReference: {fileID: 450057343}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Heal
+      value: 
+      objectReference: {fileID: 8300000, guid: 4555757a3468b4b4ea765dddb4441b77, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Light
+      value: 
+      objectReference: {fileID: 8300000, guid: 34c5069d9cfe6a24293cc6f7c45e6ca2, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Fireball
+      value: 
+      objectReference: {fileID: 8300000, guid: dc499277c076dc04c814290abdf5b6e5, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Sheild
+      value: 
+      objectReference: {fileID: 8300000, guid: 666b99a73657a2247b5cb23084fb49fa, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_SlowDown
+      value: 
+      objectReference: {fileID: 8300000, guid: 64bd649c61fa8b94f8d16d144ab49465, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_SlowUp
+      value: 
+      objectReference: {fileID: 8300000, guid: a86d4c17c9a51904aa82224732576e35, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Speed
+      value: 
+      objectReference: {fileID: 8300000, guid: 0598f61b0c073b540a0376e262caa29e, type: 3}
+    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
+        type: 3}
+      propertyPath: Spell_Banishment
+      value: 
+      objectReference: {fileID: 8300000, guid: edebecc6283a74644b73d2c6396755ab, type: 3}
     - target: {fileID: 224757540968280188, guid: c069cefb4def065449c5f03aa29bffc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,56 +362,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 1643345867}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: spellSound
-      value: 
-      objectReference: {fileID: 450057343}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Heal
-      value: 
-      objectReference: {fileID: 8300000, guid: 4555757a3468b4b4ea765dddb4441b77, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Light
-      value: 
-      objectReference: {fileID: 8300000, guid: 34c5069d9cfe6a24293cc6f7c45e6ca2, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Fireball
-      value: 
-      objectReference: {fileID: 8300000, guid: dc499277c076dc04c814290abdf5b6e5, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Sheild
-      value: 
-      objectReference: {fileID: 8300000, guid: 666b99a73657a2247b5cb23084fb49fa, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_SlowDown
-      value: 
-      objectReference: {fileID: 8300000, guid: 64bd649c61fa8b94f8d16d144ab49465, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_SlowUp
-      value: 
-      objectReference: {fileID: 8300000, guid: a86d4c17c9a51904aa82224732576e35, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Speed
-      value: 
-      objectReference: {fileID: 8300000, guid: 0598f61b0c073b540a0376e262caa29e, type: 3}
-    - target: {fileID: 114194317771550984, guid: c069cefb4def065449c5f03aa29bffc5,
-        type: 3}
-      propertyPath: Spell_Banishment
-      value: 
-      objectReference: {fileID: 8300000, guid: edebecc6283a74644b73d2c6396755ab, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c069cefb4def065449c5f03aa29bffc5, type: 3}
 --- !u!1 &70058107
@@ -411,6 +411,7 @@ MonoBehaviour:
   fireball_path: Sprites/Spells/Self_spells/Fireball
   heal_path: Sprites/Spells/Self_spells/Healing
   light_path: Sprites/Spells/Self_spells/Light
+  speed_path: Sprites/Spells/Self_spells/Speed_Initial
 --- !u!212 &70058110
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2105,9 +2106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c11cd9af441fb4d84e0c4b7d28e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  am_sped_up: 0
   speed_counter_max: 500
   path: Sprites/Spells/Self_spells/Speed
   animation_counter: 0
+  speedRatio: 1
+  speedDuration: 25
+  timeUsed: 0
 --- !u!212 &511917319
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5115,6 +5120,8 @@ GameObject:
   - component: {fileID: 1527049825}
   - component: {fileID: 1527049826}
   - component: {fileID: 1527049827}
+  - component: {fileID: 1527049829}
+  - component: {fileID: 1527049828}
   m_Layer: 0
   m_Name: TestInstrument
   m_TagString: Untagged
@@ -5174,6 +5181,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songName: Fireball
+  damage: 1
+--- !u!114 &1527049828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527049823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e2dc48df9fe1b449ce827960c24e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songName: Speed
+  speedRatio: 1.75
+  duration: 25
+--- !u!114 &1527049829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527049823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7c5ffc5dec5b842b473dc8208a39d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songName: Healing
+  healBy: 1
 --- !u!4 &1529320822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4126155370052432, guid: 44f26f1e30de08d44865cbcceb17e5d4,

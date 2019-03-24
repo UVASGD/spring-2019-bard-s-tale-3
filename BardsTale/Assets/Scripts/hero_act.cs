@@ -57,6 +57,11 @@ public class hero_act : MonoBehaviour {
         Debug.Log("Took damage! Health is " + health);
     }
 
+
+    public int getHealth()
+    {
+        return health;
+    }
     public void healDamage()
     {
         if (health < 5)

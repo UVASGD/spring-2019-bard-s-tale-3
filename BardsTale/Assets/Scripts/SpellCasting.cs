@@ -38,6 +38,18 @@ public class SpellCasting : MonoBehaviour {
     protected string[] baseSpellList;
 
     public AudioSource audio;
+    public AudioSource spellSound;
+
+    //Creating AudioClip for the Casting sounds
+    public AudioClip Spell_Light;
+    public AudioClip Spell_Heal;
+    public AudioClip Spell_Fireball;
+    public AudioClip Spell_Banishment;
+    public AudioClip Spell_Sheild;
+    public AudioClip Spell_SlowUp;
+    public AudioClip Spell_SlowDown;
+    public AudioClip Spell_Speed;
+
 
     // Spell casting events
     public event SpellLightEvent OnCastLightSpell;
@@ -73,6 +85,10 @@ public class SpellCasting : MonoBehaviour {
         }
 
         // static_information.lights = GameObject.FindObjectsOfType<lightMechanics>();
+
+
+        //spellSound = GetComponent<AudioSource>();
+        // Debug.Log(spellsound==null);
 	}
 	
 	// Update is called once per frame
@@ -140,6 +156,7 @@ public class SpellCasting : MonoBehaviour {
                                 //Debug.Log("Casting Light!");
                                 static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("light");
                                 cast_light_spell();
+                                playSpellSound(Spell_Light);
                                 break;
                             case 1: //fireball spell
                                 //Debug.Log("Casting Fireball!");
@@ -154,20 +171,23 @@ public class SpellCasting : MonoBehaviour {
                                     }
                                 }
                                 static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("fireball");
+                                playSpellSound(Spell_Fireball);
                                 break;
                             case 2: //healing spell
                                 //Debug.Log("Casting Heal!");
                                 static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("heal");
                                 static_information.hero.GetComponent<hero_act>().healDamage();
+                                playSpellSound(Spell_Heal);
                                 break;
                             case 3: //mario spell
                                 break;
                             case 4: //beethoven spell
                                 break;
                             case 5: //sonic spell
-                                Debug.Log("Casting Speed!");
+                                //Debug.Log("Casting Speed!");
                                 // static_information.hero.GetComponentInChildren<self_spellcast_animation>().castSpell("speed");
                                 static_information.hero.GetComponentInChildren<speed_handling>().castSpeed();
+                                playSpellSound(Spell_Speed);
                                 break;
                         }
 
@@ -286,6 +306,17 @@ public class SpellCasting : MonoBehaviour {
         }
     }
 
+    public void playSpellSound(AudioClip soundToPlay){
+        //toPlay = Resources.Load<AudioClip>(soundToPlay);
+        spellSound.clip = soundToPlay;
+        Debug.Log(Spell_Heal == null);
+        //spellSound.clip = toPlay;
+        Debug.Log(spellSound==null);
+        Debug.Log(spellSound.clip == null);
+        //Debug.Log(toPlay==null);
+        spellSound.Play();
+        Debug.Log("Past Playing Sound");
+    }
 
     #region =========== Spells ==============
 

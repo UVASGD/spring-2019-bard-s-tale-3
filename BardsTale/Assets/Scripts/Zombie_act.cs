@@ -17,7 +17,10 @@ public class Zombie_act : MonoBehaviour {
 
     // valuable skelly boy data
     int health;
+    public float defaultMoveSpeed;
     public float movespeed;
+    public float maxFreezeCoolDown = 0.75f;
+    public float freezeCoolDown;
     public bool is_dead;
 
     int recoil_cooldown;
@@ -51,6 +54,8 @@ public class Zombie_act : MonoBehaviour {
 
         animator = GetComponent<Animator>();
         collider = GetComponent<Collider2D>();
+        defaultMoveSpeed = movespeed;
+        freezeCoolDown = maxFreezeCoolDown;
     }
 
     // Update is called once per frame
@@ -122,6 +127,15 @@ public class Zombie_act : MonoBehaviour {
                         animator.SetBool("backWalk", false);
                     }
 
+                if(freezeCoolDown > 0)
+                {
+                    freezeCoolDown -= Time.deltaTime;
+                }
+                else
+                {
+                    movespeed = defaultMoveSpeed;
+                }
+
                 if (static_information.is_in_bounds(new_position))
                     { transform.position = new_position; }
                 //}
@@ -133,6 +147,18 @@ public class Zombie_act : MonoBehaviour {
             else
             {
                 GetComponent<SpriteRenderer>().color = Color.gray;
+                animator.SetBool("frontWalk", false);
+                animator.SetBool("backWalk", false);
+                animator.SetBool("isDead", true);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 90);
+            }
+            if (recoil_cooldown > 0)
+            {
+                recoil_cooldown --;
+            }
+            if(damage_cooldown > 0)
+            {
+                damage_cooldown -= Time.deltaTime;
             }
         }
     }
@@ -145,22 +171,14 @@ public class Zombie_act : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D other)
     {
         // zombie will attack if it is within 0.05 of the hero
-        if (recoil_cooldown > 0)
-        {
-            recoil_cooldown--;
-        }
-        else if (distance_to_hero() <= 0.1f)
+        if (distance_to_hero() <= 0.1f)
         {
             is_attacking = true;
             took_damage = false;
-            if (damage_cooldown > 0)
-            {
-                damage_cooldown -= Time.deltaTime;
-            }
-            else
+            if(damage_cooldown <= 0)
             {
                 static_information.hero.GetComponent<hero_act>().takeDamage();
-                damage_cooldown = 5 * cooldown_max;
+                damage_cooldown = 1;
 
                 if (animator.GetBool("facingFront"))
                 {
@@ -170,10 +188,10 @@ public class Zombie_act : MonoBehaviour {
                 {
                     animator.SetTrigger("backAttack");
                 }
-
-                static_information.heroRigidBody.AddForce((static_information.hero.transform.position - transform.position).normalized * 500f);
             }
-
+            movespeed = 0;
+            freezeCoolDown = maxFreezeCoolDown;
+            static_information.heroRigidBody.AddForce((static_information.hero.transform.position - transform.position).normalized * 250f);
             move_direction = -1;
         }
     }
@@ -194,6 +212,8 @@ public class Zombie_act : MonoBehaviour {
             {
                 animator.SetTrigger("backDamage");
             }
+            movespeed = 0;
+            freezeCoolDown = maxFreezeCoolDown;
             // Debug.Log("Zombie took damage! Health is: " + health);
         }
     }

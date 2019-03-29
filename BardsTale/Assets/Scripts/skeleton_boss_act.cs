@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class skeleton_boss_act : MonoBehaviour
 {
-
+    public GameObject boneyball;
     // should be self-explanatory
     public static bool is_attacking;
     public static bool took_damage;
@@ -28,6 +29,7 @@ public class skeleton_boss_act : MonoBehaviour
 
     int recoil_cooldown;
     int max_recoil_cooldown = 4;
+    float ballspeed = 5f;
 
     int damage_cooldown;
 
@@ -187,6 +189,13 @@ public class skeleton_boss_act : MonoBehaviour
     void spit()
     {
         GetComponent<boss_animation_script>().spitting = true;
+        //wait until forming animation is done maybe?
+        var ball = Instantiate(boneyball, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+        var xpos = static_information.hero.transform.position.x;
+        var ypos = static_information.hero.transform.position.y;
+        float mag = (float)Math.Sqrt(xpos * xpos + ypos + ypos);
+        var v = new Vector2(xpos * ballspeed / mag, ypos * ballspeed / mag);
+        ball.GetComponent<Rigidbody2D>().velocity = v;
     }
 }
 

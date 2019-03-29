@@ -4558,6 +4558,70 @@ PrefabInstance:
       propertyPath: m_ScaleFactor
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: 114866003649188420, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866003649188420, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866003649188420, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Light
+
+
+        J K L ;'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832010445108150, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Healing
+
+
+        L K ; J K ;'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832010445108150, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114832010445108150, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114034139919749852, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Firebolt
+
+
+        K J L J ;'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114034139919749852, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114034139919749852, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114034139919749852, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114034139919749852, guid: e08cf0079d3c80441a772671e87f81f6,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e08cf0079d3c80441a772671e87f81f6, type: 3}
 --- !u!114 &1372438096 stripped

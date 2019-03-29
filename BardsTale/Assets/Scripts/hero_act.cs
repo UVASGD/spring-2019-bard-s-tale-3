@@ -34,6 +34,15 @@ public class hero_act : MonoBehaviour {
                 }
             }
         }*/
+        if(static_information.heroRigidBody.velocity.magnitude > 0.00001)
+        {
+            static_information.heroRigidBody.velocity /= 2f;
+        }
+        else
+        {
+            static_information.heroRigidBody.velocity = Vector2.zero;
+        }
+
 	}
 
     public void takeDamage()

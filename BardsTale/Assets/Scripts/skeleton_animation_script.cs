@@ -65,12 +65,12 @@ public class skeleton_animation_script : MonoBehaviour {
                 animationLength = animationLengths[1]; // 3
                 animationStart = animationStarts[1]; // 2
             }
-            if (skeleton_act.is_attacking)
+            if (GetComponent<skeleton_act>().is_attacking)
             {
                 animationLength = animationLengths[2]; // 5
                 animationStart = animationStarts[2]; // 5
             }
-            if (skeleton_act.took_damage)
+            if (GetComponent<skeleton_act>().took_damage)
             {
                 animationLength = animationLengths[3]; // 4
                 animationStart = animationStarts[3]; // 10

@@ -6,6 +6,9 @@ public class Light : Song
 {
 
     public float duration = 30.0f;
+    public bool discoMode = false;
+    public float discoSpeed = .005f;
+    public float cooldown = .001f;
 
     void Awake()
     {
@@ -29,6 +32,6 @@ public class Light : Song
         int room = static_information.which_room_am_I_in(static_information.hero.transform.position.x, static_information.hero.transform.position.y);
         string light_id = "light_machine (" + room + ")";
         GameObject light_machine = GameObject.Find(light_id);
-        light_machine.GetComponent<simple_light>().addLight();
+        light_machine.GetComponent<simple_light>().addLight(cooldown, discoMode, discoSpeed);
     }
 }

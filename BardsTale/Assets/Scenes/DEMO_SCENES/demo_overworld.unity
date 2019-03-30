@@ -2632,6 +2632,7 @@ RectTransform:
   - {fileID: 1510662801}
   - {fileID: 138306081}
   - {fileID: 2036595110}
+  - {fileID: 1527049824}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3211,6 +3212,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alpha: 0
+  discoR: 0
+  discoG: 0
+  discoB: 0
+  discoSpeed: 0.0005
+  discoColor: 0
+  discoMagnitude: 3
+  cooldownCoefficient: 0.001
 --- !u!1001 &934017062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5122,6 +5130,9 @@ GameObject:
   - component: {fileID: 1527049827}
   - component: {fileID: 1527049829}
   - component: {fileID: 1527049828}
+  - component: {fileID: 1527049830}
+  - component: {fileID: 1527049831}
+  - component: {fileID: 1527049832}
   m_Layer: 0
   m_Name: TestInstrument
   m_TagString: Untagged
@@ -5136,12 +5147,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527049823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9038417, y: 0.36997753, z: 0.06100419}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -158.54, y: -14.48, z: 0.06100419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 729019294}
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1527049825
 MonoBehaviour:
@@ -5155,6 +5166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ac51580c1361b4b888d028d575640c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bardSpritePath: Sprites/Bard/saxophone
 --- !u!114 &1527049826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5168,6 +5180,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songName: Light
+  duration: 30
+  discoMode: 0
+  discoSpeed: 0.005
+  cooldown: 0.00085
 --- !u!114 &1527049827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5181,7 +5197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songName: Fireball
-  damage: 1
+  damage: 3
 --- !u!114 &1527049828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5211,6 +5227,101 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: Healing
   healBy: 1
+--- !u!212 &1527049830
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527049823}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 30455271
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 46bf79a2b2b72f640bc92a4ac6153db1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.25, y: 0.25}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &1527049831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527049823}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0029441714, y: -0.003923893}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
+    newSize: {x: 0.25, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.12241912, y: 0.2303803}
+  m_EdgeRadius: 0
+--- !u!50 &1527049832
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527049823}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1529320822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4126155370052432, guid: 44f26f1e30de08d44865cbcceb17e5d4,
@@ -7325,7 +7436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6268f3e06e75407458f02346da6943b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Sprites/Bard
+  path: Sprites/Bard/flute
   animationStarts: 0000000004000000080000000c000000
   animationLengths: 04000000040000000400000004000000
   cooldown: 4
@@ -7364,3 +7475,50 @@ MonoBehaviour:
   - lllkl;j
   - 
   currentInstrument: {fileID: 1527049825}
+--- !u!61 &2121195195
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121195188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0011026263, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14578593, y: 0.32}
+  m_EdgeRadius: 0
+--- !u!50 &2121195196
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121195188}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.7
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

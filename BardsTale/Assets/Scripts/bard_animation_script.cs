@@ -66,5 +66,13 @@ public class bard_animation_script : MonoBehaviour {
         {
             cooldown--;
         }
+        
     }
+
+    public void SetInstrument(string newPath)
+    {
+        path = newPath;
+        spritesList = Resources.LoadAll<Sprite>(path);
+    }
+
 }

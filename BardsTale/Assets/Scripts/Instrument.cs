@@ -5,6 +5,8 @@ using UnityEngine;
 public class Instrument : MonoBehaviour
 {
 
+    public string bardSpritePath = "";
+
     Dictionary<string, Song> songIndex = new Dictionary<string, Song>();
 
     // Start is called before the first frame update
@@ -37,5 +39,17 @@ public class Instrument : MonoBehaviour
     {
         songIndex[songName].Play();
 
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.name == "Hero")
+        {
+            GameObject bard = col.gameObject;
+            bard.GetComponent<PlaySong>().currentInstrument = this;
+            bard.GetComponent<bard_animation_script>().SetInstrument(bardSpritePath);
+            GetComponent<SpriteRenderer>().enabled = false;
+            this.transform.parent = bard.transform;
+        }
     }
 }

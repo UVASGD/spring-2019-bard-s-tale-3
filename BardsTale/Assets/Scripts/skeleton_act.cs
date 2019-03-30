@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class skeleton_act : MonoBehaviour {
+public class skeleton_act : MonoBehaviour
+{
+
+
+    // Colider
+    Collider2D collider;
 
     // should be self-explanatory
     public bool is_attacking;
@@ -21,21 +26,28 @@ public class skeleton_act : MonoBehaviour {
     public bool is_dead;
     public bool is_boss;
 
+    float defaultMoveSpeed;
+
     int spit_cooldown;
     int max_spit_cooldown = 50;
 
     int recoil_cooldown;
     int max_recoil_cooldown = 4;
 
-    int damage_cooldown;
+    public float maxFreezeCoolDown = 0.25f;
+    public float freezeCoolDown;
 
-	// Use this for initialization
-	void Start () {
+    float damage_cooldown;
+
+    // Use this for initialization
+    void Start()
+    {
         is_attacking = false;
         took_damage = false;
         move_direction = 0;
 
         health = 3 + (is_boss ? 7 : 0);
+        defaultMoveSpeed = 0.01f;
 
         spit_cooldown = 0;
         recoil_cooldown = 0;
@@ -48,15 +60,14 @@ public class skeleton_act : MonoBehaviour {
 
         //BoxCollider2D bc = gameObject.AddComponent<BoxCollider2D>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
         if (static_information.isPaused == false)
         {
             if (!is_dead)
             {
-                // skeleton will attack if it is within 0.05 of the hero
                 if (is_boss)
                 {
                     if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) != static_information.room_index)
@@ -69,7 +80,7 @@ public class skeleton_act : MonoBehaviour {
                         spit_cooldown--;
                     }
                     else
-                    { 
+                    {
                         int count = 0;
                         int totalcount = 0;
                         foreach (GameObject g in static_information.enemies)
@@ -89,22 +100,6 @@ public class skeleton_act : MonoBehaviour {
                             //Debug.Log("Spitting...");
                             spit();
                             spit_cooldown = max_spit_cooldown;
-                        }
-                        else if (distance_to_hero() <= 0.2f)
-                        {
-                            is_attacking = true;
-                            took_damage = false;
-                            if (damage_cooldown > 0)
-                            {
-                                damage_cooldown--;
-                            }
-                            else
-                            {
-                                static_information.hero.GetComponent<hero_act>().takeDamage();
-                                damage_cooldown = 5 * GetComponent<boss_animation_script>().cooldown_max;
-                            }
-
-                            move_direction = -1;
                         }
                         else
                         {
@@ -158,76 +153,78 @@ public class skeleton_act : MonoBehaviour {
                         }
                     }
                 }
-                else if (recoil_cooldown > 0)
+                else
                 {
-                    is_attacking = false;
-                    took_damage = true;
-                    recoil_cooldown--;
-                }
-                else if (distance_to_hero() <= 0.1f)
-                {
-                    is_attacking = true;
-                    took_damage = false;
+                    if (recoil_cooldown > 0)
+                    {
+                        is_attacking = false;
+                        took_damage = true;
+                        recoil_cooldown--;
+                    }
                     if (damage_cooldown > 0)
                     {
-                        damage_cooldown--;
+                        damage_cooldown -= Time.deltaTime;
+                    }
+                    if (freezeCoolDown > 0)
+                    {
+                        freezeCoolDown -= Time.deltaTime;
+                        if (freezeCoolDown <= 0)
+                        {
+                            movespeed = defaultMoveSpeed;
+                        }
                     }
                     else
                     {
-                        static_information.hero.GetComponent<hero_act>().takeDamage();
-                        damage_cooldown = 5 * GetComponent<skeleton_animation_script>().cooldown_max;
-                    }
+                        is_attacking = false;
+                        took_damage = false;
+                        if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
+                        {
+                            Debug.Log("what1");
+                            Vector2 new_position = new Vector2(transform.position.x, transform.position.y);
+                            int x_direct = 0, y_direct = 0; float small_float_value = 0.05f;
+                            // Skeleton is right of hero
+                            Debug.Log("what2");
+                            if (transform.position.x - static_information.hero.transform.position.x > small_float_value)
+                            {
+                                Debug.Log("what3");
+                                x_direct = -1;
+                                move_direction = 2;
+                            }
+                            // Skeleton is left of hero
+                            else if (transform.position.x - static_information.hero.transform.position.x < (-1 * small_float_value))
+                            {
+                                x_direct = 1;
+                                move_direction = 3;
+                            }
 
-                    move_direction = -1;
-                }
-                else
-                {
-                    is_attacking = false;
-                    took_damage = false;
-                    if (static_information.which_room_am_I_in(transform.position.x, transform.position.y) == static_information.room_index)
-                    {
-                        Vector2 new_position = new Vector2(transform.position.x, transform.position.y);
-                        int x_direct = 0, y_direct = 0; float small_float_value = 0.05f;
-                        // Skeleton is right of hero
-                        if (transform.position.x - static_information.hero.transform.position.x > small_float_value)
-                        {
-                            x_direct = -1;
-                            move_direction = 2;
-                        }
-                        // Skeleton is left of hero
-                        else if (transform.position.x - static_information.hero.transform.position.x < (-1 * small_float_value))
-                        {
-                            x_direct = 1;
-                            move_direction = 3;
-                        }
-
-                        // Skeleton is up of hero
-                        if (transform.position.y - static_information.hero.transform.position.y > small_float_value)
-                        {
-                            y_direct = -1;
-                            move_direction = 0;
-                        }
-                        // Skeleton is down of hero
-                        else if (transform.position.y - static_information.hero.transform.position.y < (-1 * small_float_value))
-                        {
-                            y_direct = 1;
-                            move_direction = 1;
-                        }
+                            // Skeleton is up of hero
+                            if (transform.position.y - static_information.hero.transform.position.y > small_float_value)
+                            {
+                                y_direct = -1;
+                                move_direction = 0;
+                            }
+                            // Skeleton is down of hero
+                            else if (transform.position.y - static_information.hero.transform.position.y < (-1 * small_float_value))
+                            {
+                                y_direct = 1;
+                                move_direction = 1;
+                            }
 
 
 
-                        // if neither x_diff nor y_diff are true, we won't change new_position.
-                        if (x_direct != 0)
-                        {
-                            new_position.x += (x_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
-                        }
-                        if (y_direct != 0)
-                        {
-                            new_position.y += (y_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
-                        }
+                            // if neither x_diff nor y_diff are true, we won't change new_position.
+                            if (x_direct != 0)
+                            {
+                                new_position.x += (x_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
+                            }
+                            if (y_direct != 0)
+                            {
+                                new_position.y += (y_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
+                            }
 
-                        if (static_information.is_in_bounds(new_position))
-                        { transform.position = new_position; }
+                            if (static_information.is_in_bounds(new_position))
+                            { transform.position = new_position; }
+                        }
                     }
                 }
             }
@@ -242,19 +239,42 @@ public class skeleton_act : MonoBehaviour {
                 GameObject light_machine = GameObject.Find(light_id);
                 float lightLevel = light_machine.GetComponent<simple_light>().alpha;
 
-                if(lightLevel == static_information.max_light_level - 15.0f)
+                if (lightLevel == static_information.max_light_level - 15.0f)
                 {
                     GetComponent<SpriteRenderer>().color = Color.white;
                     is_dead = false;
                 }
             }
         }
-		
-	}
+    }
 
     float distance_to_hero()
     {
         return Mathf.Sqrt(Mathf.Pow(static_information.hero.transform.position.x - transform.position.x, 2) + Mathf.Pow(static_information.hero.transform.position.y - transform.position.y, 2));
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.name == "Hero")
+        {
+            // skeleton will attack if it is within 0.1 of the hero
+            is_attacking = true;
+            took_damage = false;
+            if (damage_cooldown > 0)
+            {
+                damage_cooldown--;
+            }
+            else
+            {
+                static_information.hero.GetComponent<hero_act>().takeDamage();
+                damage_cooldown = 1;
+            }
+
+            movespeed = 0;
+            freezeCoolDown = maxFreezeCoolDown;
+            static_information.heroRigidBody.AddForce((static_information.hero.transform.position - transform.position).normalized * 250f);
+            move_direction = -1;
+        }
     }
 
     public void takeDamage()
@@ -290,7 +310,7 @@ public class skeleton_act : MonoBehaviour {
             {
                 recoil_cooldown = max_recoil_cooldown * GetComponent<skeleton_animation_script>().cooldown_max;
             }
-            health-=damage;
+            health -= damage;
             is_dead = (health <= 0);
             if (is_dead && is_boss)
             {

@@ -95,6 +95,7 @@ MonoBehaviour:
   fireball_path: Sprites/Spells/Self_spells/Fireball
   heal_path: Sprites/Spells/Self_spells/Healing
   light_path: Sprites/Spells/Self_spells/Light
+  speed_path: 
 --- !u!1 &516872626
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,9 +270,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c11cd9af441fb4d84e0c4b7d28e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  am_sped_up: 0
   speed_counter_max: 500
   path: Sprites/Spells/Self_spells/Speed
   animation_counter: 0
+  speedRatio: 1
+  speedDuration: 25
+  timeUsed: 0
 --- !u!1 &2085907110
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +563,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.004214987}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -569,7 +574,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.32}
+  m_Size: {x: 0.2, y: 0.31157002}
   m_EdgeRadius: 0
 --- !u!95 &657356271
 Animator:

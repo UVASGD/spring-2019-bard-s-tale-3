@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4126155370052432}
   - component: {fileID: 212794464094475762}
-  - component: {fileID: 114270792903855700}
+  - component: {fileID: 8281181717766095209}
   - component: {fileID: 114649553898719050}
+  - component: {fileID: 5348242751918810049}
+  - component: {fileID: 5639642792703536012}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Enemy
@@ -81,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114270792903855700
+--- !u!114 &8281181717766095209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +95,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8c45a97a389734183a5f7843ef176c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 0.31, y: 0.53}
+  is_attacking: 0
+  took_damage: 0
+  dimensions: {x: 0, y: 0}
   move_direction: 0
-  movespeed: 0.0095
+  movespeed: 0.01
   is_dead: 0
   is_boss: 0
+  maxFreezeCoolDown: 0.25
+  freezeCoolDown: 0
 --- !u!114 &114649553898719050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +121,50 @@ MonoBehaviour:
   animationStarts: 0000000002000000050000000a000000
   cooldown_max: 4
   dying: 0
+--- !u!50 &5348242751918810049
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288302405426152}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!61 &5639642792703536012
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288302405426152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.006334722, y: 0.07394774}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15107429, y: 0.17210451}
+  m_EdgeRadius: 0

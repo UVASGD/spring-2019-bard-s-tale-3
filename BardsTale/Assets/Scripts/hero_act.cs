@@ -76,6 +76,10 @@ public class hero_act : MonoBehaviour {
         if (health < 5)
         {
             health += healBy;
+            if (health > 5)
+            {
+                health = 5;
+            }
         }
         GameObject.Find("Health Parent").GetComponent<adjustHealth>().setHealth(health);
     }

@@ -5,10 +5,8 @@ using UnityEngine;
 public class LilFuckinDoorScript : MonoBehaviour
 {
 
-    public float teleportX = 0;
-    public float teleportY = 0;
-    public float roomX = 0;
-    public float roomY = 0;
+    public GameObject spawn;
+    public GameObject cameraPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +22,9 @@ public class LilFuckinDoorScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        col.gameObject.transform.position = new Vector3(teleportX, teleportY, 0.0f);
+        col.gameObject.transform.position = spawn.transform.position;
         GameObject camera = GameObject.Find("Main Camera");
-        camera.transform.position = new Vector3(roomX, roomY, -10.0f);
+        camera.transform.position = cameraPoint.transform.position;
+        static_information.room_index = static_information.which_room_am_I_in(spawn.transform.position.x, spawn.transform.position.y);
     }
 }

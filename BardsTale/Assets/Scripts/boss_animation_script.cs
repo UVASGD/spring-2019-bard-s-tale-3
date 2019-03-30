@@ -22,7 +22,7 @@ public class boss_animation_script : MonoBehaviour {
     public bool dying;
     public bool healing;
 
-    Vector2[] random_spawn_areas = new Vector2[] { new Vector2(8.020554f, 6.153f), new Vector2(8.020554f, 8.059f), new Vector2(11.155f, 8.059f), new Vector2(11.14f, 6.16f) };
+    Vector2[] random_spawn_areas = new Vector2[] { new Vector2(8.5f, 7.5f), new Vector2(8.5f, 6.5f), new Vector2(11.155f, 8.059f), new Vector2(11.14f, 6.16f) };
 
 	// Use this for initialization
 	void Start () {

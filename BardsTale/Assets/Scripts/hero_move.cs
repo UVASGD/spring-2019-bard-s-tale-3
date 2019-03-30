@@ -75,14 +75,14 @@ public class hero_move : MonoBehaviour {
 
             // Debug.Log("Move Direction: " + moveDir);
 
-            if (static_information.is_in_bounds(new_position))
+            //if (static_information.is_in_bounds(new_position))
             {
                 transform.position = new_position;
                 static_information.hero.transform.position = transform.position;
             }
-            else
+            //else
             {
-                Debug.Log("Hit a wall!");
+                //Debug.Log("Hit a wall!");
             }
         }
     }

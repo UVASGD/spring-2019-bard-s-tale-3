@@ -41,12 +41,12 @@ public class skeleton_act : MonoBehaviour {
         recoil_cooldown = 0;
         damage_cooldown = 0;
 
-        Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.gravityScale = 0;
-        rb.freezeRotation = true;
+        //Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
+        //rb.bodyType = RigidbodyType2D.Dynamic;
+        //rb.gravityScale = 0;
+        //rb.freezeRotation = true;
 
-        BoxCollider2D bc = gameObject.AddComponent<BoxCollider2D>();
+        //BoxCollider2D bc = gameObject.AddComponent<BoxCollider2D>();
     }
 	
 	// Update is called once per frame

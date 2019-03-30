@@ -6,6 +6,7 @@ public class Instrument : MonoBehaviour
 {
 
     public string bardSpritePath = "";
+    public static GameObject currentInstrument;
 
     Dictionary<string, Song> songIndex = new Dictionary<string, Song>();
 
@@ -48,8 +49,19 @@ public class Instrument : MonoBehaviour
             GameObject bard = col.gameObject;
             bard.GetComponent<PlaySong>().currentInstrument = this;
             bard.GetComponent<bard_animation_script>().SetInstrument(bardSpritePath);
+
+            if(currentInstrument != null)
+            {
+                currentInstrument.GetComponent<SpriteRenderer>().enabled = true;
+                currentInstrument.transform.parent = GameObject.Find("Overworld").transform;
+            }
+            currentInstrument = gameObject;
+
             GetComponent<SpriteRenderer>().enabled = false;
             this.transform.parent = bard.transform;
+
+            GameObject ih = GameObject.Find("INPUT_HANDLER");
+            ih.GetComponent<SpellCasting>().audio = gameObject.GetComponent<AudioSource>();
         }
     }
 }

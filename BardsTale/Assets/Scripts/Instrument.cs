@@ -53,7 +53,7 @@ public class Instrument : MonoBehaviour
             if(currentInstrument != null)
             {
                 currentInstrument.GetComponent<SpriteRenderer>().enabled = true;
-                currentInstrument.transform.parent = GameObject.Find("Overworld").transform;
+                currentInstrument.transform.parent = currentInstrument.transform.parent.parent;
             }
             currentInstrument = gameObject;
 

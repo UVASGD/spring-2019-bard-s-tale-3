@@ -64,6 +64,11 @@ public class skeleton_act : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!is_dead)
+        {
+            dimensions = GetComponent<BoxCollider2D>().size;
+        }
+
         if (static_information.isPaused == false)
         {
             if (!is_dead)

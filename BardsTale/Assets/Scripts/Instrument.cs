@@ -46,6 +46,8 @@ public class Instrument : MonoBehaviour
     {
         if(col.gameObject.name == "Hero")
         {
+            GetComponent<BoxCollider2D>().enabled = false;
+
             GameObject bard = col.gameObject;
             bard.GetComponent<PlaySong>().currentInstrument = this;
             bard.GetComponent<bard_animation_script>().SetInstrument(bardSpritePath);
@@ -54,6 +56,7 @@ public class Instrument : MonoBehaviour
             {
                 currentInstrument.GetComponent<SpriteRenderer>().enabled = true;
                 currentInstrument.transform.parent = currentInstrument.transform.parent.parent;
+                currentInstrument.GetComponent<BoxCollider2D>().enabled = true;
             }
             currentInstrument = gameObject;
 

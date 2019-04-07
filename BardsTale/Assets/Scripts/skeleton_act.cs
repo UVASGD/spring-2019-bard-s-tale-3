@@ -260,7 +260,7 @@ public class skeleton_act : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Hero")
+        if (other.gameObject.name == "Hero" && is_dead == false)
         {
             // skeleton will attack if it is within 0.1 of the hero
             is_attacking = true;

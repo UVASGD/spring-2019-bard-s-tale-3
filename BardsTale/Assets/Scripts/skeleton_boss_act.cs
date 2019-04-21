@@ -24,12 +24,12 @@ public class skeleton_boss_act : MonoBehaviour
     public bool is_dead;
     public bool is_boss = true;
 
-    int spit_cooldown;
-    int max_spit_cooldown = 50;
+    public float spit_cooldown;
+    int max_spit_cooldown = 30;
 
     int recoil_cooldown;
     int max_recoil_cooldown = 4;
-    float ballspeed = 5f;
+    float ballspeed = 2f;
 
     int damage_cooldown;
 
@@ -85,7 +85,12 @@ public class skeleton_boss_act : MonoBehaviour
 
                 if (spit_cooldown > 0)
                 {
-                    spit_cooldown--;
+                    spit_cooldown = spit_cooldown - Time.deltaTime;
+                }
+
+                if (false)
+                {
+
                 }
                 else
                 {
@@ -102,10 +107,10 @@ public class skeleton_boss_act : MonoBehaviour
                             totalcount++;
                         }
                     }
-                    //Debug.Log("Count: " + count);
-                    if (count < 4 && totalcount < 11)
+                    Debug.Log("WRRRRYYYYYYYYYYYYYYYYYYYYYYYYYY");
+                    if (spit_cooldown < 0.01f)
                     {
-                        //Debug.Log("Spitting...");
+                        Debug.Log("Spitting...");
                         spit();
                         spit_cooldown = max_spit_cooldown;
                     }
@@ -148,11 +153,11 @@ public class skeleton_boss_act : MonoBehaviour
                             // if neither x_diff nor y_diff are true, we won't change new_position.
                             if (x_direct != 0)
                             {
-                                new_position.x += 0.5f * (x_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
+                                new_position.x += (x_direct) * (movespeed / (2f * Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct))));
                             }
                             if (y_direct != 0)
                             {
-                                new_position.y += 0.5f * (y_direct) * (movespeed / Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct)));
+                                new_position.y += (y_direct) * (movespeed / (2f * Mathf.Sqrt(Mathf.Abs(x_direct) + Mathf.Abs(y_direct))));
                             }
 
                             if (static_information.is_in_bounds(new_position))
@@ -204,14 +209,19 @@ public class skeleton_boss_act : MonoBehaviour
 
     void spit()
     {
-        GetComponent<boss_animation_script>().spitting = true;
-        //wait until forming animation is done maybe?
-        var ball = Instantiate(boneyball, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
-        var xpos = static_information.hero.transform.position.x;
-        var ypos = static_information.hero.transform.position.y;
-        float mag = (float)Math.Sqrt(xpos * xpos + ypos + ypos);
-        var v = new Vector2(xpos * ballspeed / mag, ypos * ballspeed / mag);
-        ball.GetComponent<Rigidbody2D>().velocity = v;
+        if (!is_dead)
+        {
+            GetComponent<boss_animation_script>().spitting = true;
+            //wait until forming animation is done maybe?
+            Debug.Log("spat");
+            var ball = Instantiate(boneyball, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+            ball.GetComponent<SpriteRenderer>().sortingLayerName = "Moreground";
+            var xpos = static_information.hero.transform.position.x;
+            var ypos = static_information.hero.transform.position.y;
+            float mag = (float)Math.Sqrt(xpos * xpos + ypos + ypos);
+            var v = new Vector2(xpos * ballspeed / mag, ypos * ballspeed / mag);
+            ball.GetComponent<Rigidbody2D>().velocity = v;
+        }
     }
 }
 

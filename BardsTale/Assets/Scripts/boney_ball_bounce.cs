@@ -13,7 +13,8 @@ public class boney_ball_bounce : MonoBehaviour
             if (collide_count == 3)
             {
                 Debug.Log("Uhhhhhhhh :^)");//Destroy(gameObject); will destroy the ball
-                Instantiate(Skeleton, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+                var skelly = Instantiate(Skeleton, new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y), Quaternion.identity);
+                skelly.GetComponent<SpriteRenderer>().sortingLayerName = "Moreground";
                 Destroy(this.gameObject);
             }
         }

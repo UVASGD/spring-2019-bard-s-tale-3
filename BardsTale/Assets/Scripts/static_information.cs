@@ -153,7 +153,7 @@ public static class static_information {
                 {
                     return 3;
                 }
-                else if (y_coord < 8.2 && y_coord > 5.4)
+                else if (y_coord < 8.4 && y_coord > 5.4)
                 {
                     return 4;
                 }

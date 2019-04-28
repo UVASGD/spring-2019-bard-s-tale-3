@@ -68,5 +68,10 @@ public class skeletonAnimatorTest : MonoBehaviour
             animator.SetTrigger("die");
             animator.SetBool("isDead", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            animator.SetBool("isDead", false);
+        }
     }
 }

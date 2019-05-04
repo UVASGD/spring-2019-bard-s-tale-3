@@ -11,49 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/UI Testing Scenes/startmenu_UI_Test.unity
-    guid: 7aba6aa1419afaa42ab42e7588dbdbb9
-  - enabled: 0
-    path: Assets/Scenes/UI Testing Scenes/overworld_UI_Test.unity
-    guid: 9ccf003053e2b134db385f8585af7b0d
+    guid: 44bde885df44f1b43be4e5701c7621d5
   - enabled: 1
     path: Assets/Scenes/DEMO_SCENES/demo_overworld.unity
-    guid: 09238e7e16e283047935c9029cbe353a
+    guid: 323e2f4862e3c4a4aa32072f608313fe
   - enabled: 1
     path: Assets/Scenes/DEMO_SCENES/demo_credits.unity
-    guid: fe297eecb81a0b7439f3a2267be965b6
+    guid: a07045d6a80651f40b393e722121b18f
   m_configObjects: {}

@@ -182,11 +182,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits: (p for programming, d for directors)\nSamantha Chiang\t\tUI Assets,
-    forthcoming disco room\nJenny Wu\t\t\t\t\t\tEnemy, Room Assets, animations, title
-    screen\nKevin Li\t\t\t\t\t\tHero Animation\nTwindy Pham\tUpcoming spell animations\nCamille
-    Digamo\tMusic Design\nIsaac Park\t\t\t\t\tSound Design\nGreg Coneen\t\t\t\tStart
-    Menu Music"
+  m_Text: "Credits: (p for programming, d for directors, n for start menu)\nSamantha
+    Chiang\t\tUI Assets, forthcoming disco room\nJenny Wu\t\t\t\t\t\tEnemy, Room Assets,
+    animations, title screen\nKevin Li\t\t\t\t\t\tHero Animation\nTwindy Pham\tUpcoming
+    spell animations\nCamille Digamo\tMusic Design\nIsaac Park\t\t\t\t\tSound Design\nGreg
+    Coneen\t\t\t\tStart Menu Music"
 --- !u!222 &33126886
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -347,13 +347,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Credits: (a for art, d for directors)\nKenny Chen\t\t\t\tSpell Tree, Spellcasting,
-    Colliders, Animation, bugfixing\nStephen Shiao \t\tDungeon Design, Mapping, colliders,
-    animation, bugfixing\nMichael Klaczynski\t\tInstruments, Sound, colliders, bugfixing\nCJ
-    Rogers\t\t\tSound, bugfixing\nKevin Li\t\t\t\tLight mechanic, colliders, walls,
-    upcoming boss features\nNick Campbell\t\t\tFireball, Projectiles, Spells, bugfixes\nBrandon
-    Ongtingco\tSpeed tweaks, bugfixing\nAtishay Kasera \t\tEnemy AI, prefabs\nKaran
-    Goyal\t\t\tDungeon Mapping\nDaniel Prohaska \t\tBoss Design, Implementation"
+  m_Text: "Credits: (a for art, d for directors, n for start menu)\nKenny Chen\t\t\t\tSpell
+    Tree, Spellcasting, Colliders, Animation, bugfixing\nStephen Shiao \t\tDungeon
+    Design, Mapping, colliders, animation, bugfixing\nMichael Klaczynski\t\tInstruments,
+    Sound, colliders, bugfixing\nCJ Rogers\t\t\tSound, bugfixing\nKevin Li\t\t\t\tLight
+    mechanic, colliders, walls, upcoming boss features\nNick Campbell\t\t\tFireball,
+    Projectiles, Spells, bugfixes\nBrandon Ongtingco\tSpeed tweaks, bugfixing\nAtishay
+    Kasera \t\tEnemy AI, prefabs\nKaran Goyal\t\t\tDungeon Mapping\nDaniel Prohaska
+    \t\tBoss Design, Implementation"
 --- !u!222 &1554734094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -701,7 +702,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Credits:\n\nAndy Mangham\t\t\tArt Director\nJimmy Patterson\t\t\tProgramming
-    Director\n\nPress 'a' for art credits\nPress 'p' for programming credits"
+    Director\n\nPress 'a' for art credits\nPress 'p' for programming credits\nPress
+    'n' to go to start menu"
 --- !u!222 &2065014775
 CanvasRenderer:
   m_ObjectHideFlags: 0

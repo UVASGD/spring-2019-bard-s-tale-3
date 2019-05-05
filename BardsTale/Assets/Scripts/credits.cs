@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class credits : MonoBehaviour {
@@ -21,6 +22,11 @@ public class credits : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            SceneManager.LoadScene(static_information.start_menu_scene_index);
+        }
+
 		if ((state == 0 || state == 2) && Input.GetKeyDown(KeyCode.A))
         {
             directors.enabled = false;
